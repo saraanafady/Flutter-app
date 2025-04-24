@@ -1,13 +1,14 @@
 # demoday1
 
-A new Flutter project.![sreen2](https://github!
+A new Flutter project.!
 
 
 ## Getting Started
 
 This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+A few resources to get you started if this is your first Flutter project:![screen1](https://github.com/user-attachments/assets/c61dadb0-25d0-4e9e-ac18-b25221242c4e)
+
 
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
