@@ -1,8 +1,6 @@
 # demoday1
 
-A new Flutter project.![sreen2](https://github![screen1](https://github.com/user-attachments/assets/cb969b92-5d71-45f5-aa3b-6f2d5d42555d)
-.com/user-att![screen3](https://github.com/user-attachments/assets/09b96c74-818a-4a05-a498-8a5d7330872f)
-achments/assets/7e06212a-7e15-4374-abea-08671c054ce0)
+A new Flutter project.![sreen2](https://github!
 
 
 ## Getting Started
