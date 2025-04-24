@@ -7,296 +7,191 @@ class ThisIsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Stack(
-        children: [
-          SafeArea(
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Header Section
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    // Header Section
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Hello, Mo',
-                              style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Text(
-                              'Welcome Back',
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.red,
-                                decoration: TextDecoration.underline,
-                                decorationColor: Colors.red,
-                              ),
-                            ),
-                          ],
+                        Text(
+                          'Hello, Mo',
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                        IconButton(
-                          icon: const Icon(Icons.notifications_outlined),
-                          onPressed: () {},
+                        Text(
+                          'Welcome Back',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.red,
+                            decoration: TextDecoration.underline,
+                            decorationColor: Colors.red,
+                          ),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 20),
+                    IconButton(
+                      icon: const Icon(Icons.notifications_outlined),
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
 
-                    // Today's Tasks Card
-                    Container(
-                      padding: const EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF26C6DA),
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Row(
+                // Today's Tasks Card
+                Container(
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF26C6DA),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Row(
+                    children: [
+                      const Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
+                          Text(
                             'Today',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 20,
                             ),
-                            ),
-                            SizedBox(height: 10),
-                            Text(
+                          ),
+                          SizedBox(height: 10),
+                          Text(
                             '2/10 Tasks',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
                             ),
-                            ),
-                          ],
-                          ),
-                          const Spacer(),
-                          Image.asset(
-                          'assets/Group.png',
-                          width: 80,
-                          height: 80,
                           ),
                         ],
                       ),
-                    ),
-                    const SizedBox(height: 30),
-
-                    // To Do Section
-                    Row(
-                      children: [
-                        const Text(
-                          'To Do',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(width: 8),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 8,
-                            vertical: 4,
-                          ),
-                          decoration: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: const Text(
-                            '3',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-
-                    // Task Cards
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          _buildTaskCard(
-                            'Project',
-                            'Redesign\nHomescreen',
-                            '25th october 2023',
-                          ),
-                          const SizedBox(width: 15),
-                          _buildTaskCard(
-                            'Practise',
-                            'UX Research\nSample',
-                            '17th July 2023',
-                          ),
-                          const SizedBox(width: 15),
-                          _buildTaskCard(
-                            'Duplicate',
-                            'Blog Post\nDesign',
-                            '20th october 2023',
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 30),
-
-                    // In Progress Section
-                    Row(
-                      children: [
-                        const Text(
-                          'In Progress',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(width: 8),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 8,
-                            vertical: 4,
-                          ),
-                          decoration: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: const Text(
-                            '3',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-
-                    // Progress Cards
-                    _buildProgressCard(
-                      "Tommy max's Project",
-                      'Create Ad Banner',
-                      '2 hours ago',
-                      0.7,
-                    ),
-                    const SizedBox(height: 15),
-                    _buildProgressCard(
-                      'Personal Work',
-                      'Create New Blog Post',
-                      '2 Days ago',
-                      0.45,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          DraggableScrollableSheet(
-            initialChildSize: 0.1,
-            minChildSize: 0.1,
-            maxChildSize: 0.7,
-            builder: (context, scrollController) {
-              return Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: const BorderRadius.vertical(
-                    top: Radius.circular(20),
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      // ignore: deprecated_member_use
-                      color: Colors.grey.withOpacity(0.2),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: const Offset(0, -3),
-                    ),
-                  ],
-                ),
-                child: SingleChildScrollView(
-                  controller: scrollController,
-                  child: Column(
-                    children: [
-                      const SizedBox(height: 12),
-                      Container(
-                        width: 40,
-                        height: 4,
-                        decoration: BoxDecoration(
-                          color: Colors.grey[300],
-                          borderRadius: BorderRadius.circular(2),
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              'Quick Actions',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const SizedBox(height: 20),
-                            _buildQuickActionItem(
-                              icon: Icons.add_task,
-                              title: 'Add New Task',
-                              onTap: () {},
-                            ),
-                            _buildQuickActionItem(
-                              icon: Icons.calendar_today,
-                              title: 'Schedule Meeting',
-                              onTap: () {},
-                            ),
-                            _buildQuickActionItem(
-                              icon: Icons.note_add,
-                              title: 'Create Note',
-                              onTap: () {},
-                            ),
-                            _buildQuickActionItem(
-                              icon: Icons.people,
-                              title: 'Team Chat',
-                              onTap: () {},
-                            ),
-                            const SizedBox(height: 20),
-                          ],
-                        ),
+                      const Spacer(),
+                      Image.asset(
+                        'assets/Group.png',
+                        width: 80,
+                        height: 80,
                       ),
                     ],
                   ),
                 ),
-              );
-            },
-          ),
-        ],
-      ),
-    );
-  }
+                const SizedBox(height: 30),
 
-  Widget _buildQuickActionItem({
-    required IconData icon,
-    required String title,
-    required VoidCallback onTap,
-  }) {
-    return ListTile(
-      leading: Container(
-        padding: const EdgeInsets.all(8),
-        decoration: BoxDecoration(
-          color: Colors.grey[100],
-          borderRadius: BorderRadius.circular(10),
+                // To Do Section
+                Row(
+                  children: [
+                    const Text(
+                      'To Do',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                        vertical: 4,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: const Text(
+                        '3',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+
+                // Task Cards
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      _buildTaskCard(
+                        'Project',
+                        'Redesign\nHomescreen',
+                        '25th october 2023',
+                      ),
+                      const SizedBox(width: 15),
+                      _buildTaskCard(
+                        'Practise',
+                        'UX Research\nSample',
+                        '17th July 2023',
+                      ),
+                      const SizedBox(width: 15),
+                      _buildTaskCard(
+                        'Duplicate',
+                        'Blog Post\nDesign',
+                        '20th october 2023',
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 30),
+
+                // In Progress Section
+                Row(
+                  children: [
+                    const Text(
+                      'In Progress',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                        vertical: 4,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: const Text(
+                        '3',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+
+                // Progress Cards
+                _buildProgressCard(
+                  "Tommy max's Project",
+                  'Create Ad Banner',
+                  '2 hours ago',
+                  0.7,
+                ),
+                const SizedBox(height: 15),
+                _buildProgressCard(
+                  'Personal Work',
+                  'Create New Blog Post',
+                  '2 Days ago',
+                  0.45,
+                ),
+              ],
+            ),
+          ),
         ),
-        child: Icon(icon, color: const Color(0xFF26C6DA)),
       ),
-      title: Text(
-        title,
-        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-      ),
-      trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-      onTap: onTap,
     );
   }
 
